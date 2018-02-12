@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 
 @NgModule({
     imports: [
@@ -12,11 +13,11 @@ import { AgmCoreModule } from '@agm/core';
         CommonModule,
         FormsModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDJR4TmQMhp4YGdU47SW-46_dgCaT46Djw'
+            apiKey: ' AIzaSyDs6oPVEcApR3Gxsg9WI_fWgEM8wMiEDdA '
         })
     ],
     providers: [],
-    declarations: [ AppComponent ],
+    declarations: [ AppComponent, GooglemapsComponent ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}
