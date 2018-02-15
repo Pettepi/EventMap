@@ -7,6 +7,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 import { LinkedeventsComponent } from './linkedevents/linkedevents.component';
+import { TopnavComponent } from './topnav/topnav.component';
+import { FooterComponent } from './footer/footer.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -20,7 +23,7 @@ import { LinkedeventsComponent } from './linkedevents/linkedevents.component';
         })
     ],
     providers: [],
-    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent],
+    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent, TopnavComponent, FooterComponent, MainComponent],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}
