@@ -3,12 +3,15 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
+import { LinkedeventsComponent } from './linkedevents/linkedevents.component';
+
 
 @NgModule({
     imports: [
+        HttpClientModule,
         BrowserModule,
         CommonModule,
         FormsModule,
@@ -17,7 +20,7 @@ import { GooglemapsComponent } from './googlemaps/googlemaps.component';
         })
     ],
     providers: [],
-    declarations: [ AppComponent, GooglemapsComponent ],
+    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}
