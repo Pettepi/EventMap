@@ -8,7 +8,6 @@ import { AgmCoreModule } from '@agm/core';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 import { LinkedeventsComponent } from './linkedevents/linkedevents.component';
 import { TopnavComponent } from './topnav/topnav.component';
-import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 
 
@@ -23,7 +22,7 @@ import { MainComponent } from './main/main.component';
         })
     ],
     providers: [],
-    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent, TopnavComponent, FooterComponent, MainComponent],
+    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent, TopnavComponent, MainComponent],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}

@@ -16,16 +16,6 @@ export class LinkedeventsComponent implements OnInit {
     constructor(private http: HttpClient) {
     }
 
-    getJson() {
-        interface Myinterface {
-            license: string;
-        }
-
-        this.http.get<Myinterface>('assets/package.json').subscribe((data) => {
-            console.log(data);
-            this.tulos = data.license;
-        });
-    }
 
     getFromApi() {
         interface Eventinterface {
@@ -35,11 +25,28 @@ export class LinkedeventsComponent implements OnInit {
         this.http.get<Event>(this.apiosoite + '/event/?start=today').subscribe((response) => {
             console.log(response);
             this.apitulokset = response.data;
+            this.apitulokset.forEach(event => {
+                const keywords = event.keywords;
+                keywords.forEach(keyword => {
+                    console.log(keyword);
+                    if (keyword['@id'].includes('p1808')) {
+                        const id = event.location['@id'];
+                        this.http.get(id).subscribe(event => {
+                            console.log(event['position'].coordinates);
+                            // lisää nasta kartalle
+                            const coords = {
+                                lat: event['position'].coordinates[0],
+                                lng: event['position'].coordinates[1]
+                            };
+                        });
+                    }
+                });
+
+            });
         });
     }
 
     ngOnInit() {
-        this.getJson();
         this.getFromApi();
     }
 
