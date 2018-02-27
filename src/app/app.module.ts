@@ -9,6 +9,7 @@ import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 import { LinkedeventsComponent } from './linkedevents/linkedevents.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { MainComponent } from './main/main.component';
+import { MediaService } from './media.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { MainComponent } from './main/main.component';
             apiKey: ' AIzaSyDs6oPVEcApR3Gxsg9WI_fWgEM8wMiEDdA '
         })
     ],
-    providers: [],
+    providers: [ MediaService ],
     declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent, TopnavComponent, MainComponent],
     bootstrap: [ AppComponent ]
 })
