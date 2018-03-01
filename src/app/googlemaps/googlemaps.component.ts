@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {MediaService} from '../media.service';
-import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-googlemaps',
@@ -9,19 +8,16 @@ import {AppComponent} from '../app.component';
 })
 export class GooglemapsComponent implements OnInit {
 
+
   title: string = '';
-  coords;
-  lat;
-  lng;
+  lat = 60.1737;
+  lng = 24.93509;
   zoom: number = 13;
 
-  constructor(private mediaService: MediaService) {
+  constructor(public mediaService: MediaService) {
   }
 
   ngOnInit() {
-    this.coords = this.mediaService.getCoords();
-    this.lat = this.coords.lat;
-    this.lng = this.coords.lng;
   }
 
 }

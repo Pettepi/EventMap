@@ -19,29 +19,28 @@ export class LinkedeventsComponent implements OnInit {
 
   getFromApi() {
     interface Eventinterface {
-      file: any;
+      data: any;
     }
 
-    this.http.get<Event>(this.apiosoite + '/event/?start=today').
+    this.http.get<Eventinterface>(this.apiosoite + '/event/?start=today').
         subscribe((response) => {
           console.log(response);
           this.apitulokset = response.data;
           this.apitulokset.forEach(event => {
             const keywords = event.keywords;
             keywords.forEach(keyword => {
-              console.log(keyword);
-              if (keyword['@id'].includes('p1808')) {
+              console.log(keyword['@id']);
+              // if (keyword['@id'].includes('p1808')) {
                 const id = event.location['@id'];
-                this.http.get(id).subscribe(evt => {
-                  console.log(evt['position'].coordinates);
+                this.http.get(id).subscribe(paikka => {
+                  console.log(paikka['position'].coordinates);
                   // lisää nasta kartalle
-                  this.mediaService.setCoords(evt['position'].coordinates[0],
-                      evt['position'].coordinates[1]);
-
+                  event.paikka = paikka;
+                  console.log(event);
+                  this.mediaService.setEvent(event);
                 });
-              }
+              // }
             });
-
           });
         });
   }

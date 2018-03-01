@@ -1,6 +1,3 @@
-<p>
-  {{ tulos }}
-</p>
-<p *ngFor="let apitulos of apitulokset">
-  {{apitulos.location['@id']}}
-</p>
+<div *ngFor="let apitulos of apitulokset">
+    <div [innerHTML]="apitulos.description.en"></div>
+</div>

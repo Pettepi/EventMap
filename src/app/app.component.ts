@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MediaService} from './media.service';
 import {OnInit} from '@angular/core';
 
 @Component({
@@ -10,10 +9,8 @@ import {OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
     title = 'app';
 
-    constructor(private mediaService: MediaService) {
+    constructor() {
     }
     ngOnInit() {
-        console.log(this.mediaService.coords);
-        this.mediaService.myMedia();
     }
 }

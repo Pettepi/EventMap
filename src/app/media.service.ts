@@ -4,23 +4,34 @@ import {Injectable} from '@angular/core';
 
 export class MediaService {
 
-    constructor() {
-    }
+  constructor() {
+  }
 
-    coords = {
-        lat: '',
-        lng: ''
+  events = [];
+
+  setEvent(ev) {
+    this.events.push(ev);
+  }
+
+  getEvent() {
+    return this.events;
+  }
+
+  /*
+    name = {
+      sv: '',
+      fi: '',
     };
 
-    setCoords(lat, lon) {
-        this.coords = {
-            lat: lat,
-            lng: lon
-        };
+    setName(sv, fi) {
+      this.name = {
+        sv: sv,
+        fi: fi,
+      };
     }
 
-    getCoords() {
-        return this.coords;
+    getName() {
+      return this.name;
     }
-
+  */
 }
