@@ -6,11 +6,21 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
     <agm-marker *ngFor="let eventti of mediaService.events" [latitude]="eventti.paikka.position.coordinates[1]" [longitude]="eventti.paikka.position.coordinates[0]">
         <agm-info-window>
-            <div [innerHTML]="eventti.description.en"></div>
+            <div [innerHTML]="eventti.short_description.en"></div>
+            <div *ngFor="let offer of eventti.offers">
+                <div *ngIf="offer.price !== null">
+                    {{ offer.description.fi }}
+                    {{ offer.price.fi }}
+                    <a target="_blank" href="{{ offer.info_url.fi }}">Link</a>
+                </div>
+                <div *ngIf="offer.is_free == true">
+                    <p>Event is free</p>
+                    <a target="_blank" href="{{ offer.info_url.fi }}">Link</a>
+                </div>
+            </div>
         </agm-info-window>
     </agm-marker>
 </agm-map>
-
 
 
 
