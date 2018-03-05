@@ -22,7 +22,7 @@ export class LinkedeventsComponent implements OnInit {
       data: any;
     }
 
-    this.http.get<Eventinterface>(this.apiosoite + '/event/?start=today').
+    this.http.get<Eventinterface>(this.apiosoite + '/event/?start=today&end=today&keyword=yso:p1808').
         subscribe((response) => {
           console.log(response);
           this.apitulokset = response.data;
