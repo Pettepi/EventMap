@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MediaService} from '../media.service';
 
 @Component({
   selector: 'app-topnav',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopnavComponent implements OnInit {
 
-  constructor() { }
+    constructor(public mediaService: MediaService) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

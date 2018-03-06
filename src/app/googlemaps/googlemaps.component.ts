@@ -12,7 +12,8 @@ export class GooglemapsComponent implements OnInit {
   title: string = '';
   lat = 60.1737;
   lng = 24.93509;
-  zoom: number = 13;
+  zoom: number = 11
+  ;
 
   constructor(public mediaService: MediaService) {
   }

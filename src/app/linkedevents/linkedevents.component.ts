@@ -30,17 +30,17 @@ export class LinkedeventsComponent implements OnInit {
             const keywords = event.keywords;
             keywords.forEach(keyword => {
               console.log(keyword['@id']);
-              // if (keyword['@id'].includes('p1808')) {
-                const id = event.location['@id'];
-                this.http.get(id).subscribe(paikka => {
-                  console.log(paikka['position'].coordinates);
-                  // lisää nasta kartalle
-                  event.paikka = paikka;
-                  console.log(event);
-                  this.mediaService.setEvent(event);
-                });
-              // }
-            });
+               if (keyword['@id'].includes('p1808')) {
+                   const id = event.location['@id'];
+                   this.http.get(id).subscribe(paikka => {
+                       console.log(paikka['position'].coordinates);
+                       // lisää nasta kartalle
+                       event.paikka = paikka;
+                       console.log(event);
+                       this.mediaService.setEvent(event);
+                   });
+                   // }
+               }});
           });
         });
   }

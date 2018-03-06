@@ -21,8 +21,12 @@
                     <p>Tapahtuma on ilmainen</p>
 
                 </div>
+                <p style="display:inline" [innerHTML]="eventti.start_time"></p><p style="display:inline" [innerHTML]> - </p><p style="display:inline" [innerHTML]="eventti.end_time"></p>
+
             </div>
         </agm-info-window>
     </agm-marker>
 </agm-map>
+
+
 
