@@ -1,16 +1,33 @@
 <div class="topnav">
+    <!--<h1 style="color: white">EventMap</h1>-->
     <div class="dropdown">
-        <button class="dropbtn">Tapahtumat
+        <button class="dropbtn" id="tapahtumat">Tapahtumat
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
             <ul>
-                <li *ngFor="let eventti of mediaService.events"><a [href]="">{{eventti.name.fi}}</a></li>
+                <li *ngFor="let eventti of mediaService.events">
+                    <p style="display:inline" style="font-family: Helvetica">{{eventti.name.fi}}</p>
+                    <a *ngIf="eventti.info_url" [href]="eventti.info_url.fi"><span style="display:inline" id="linkki" style="font-family: Helvetica">Avaa tapahtuman sivu</span></a>
+                    <a *ngIf="eventti.info_url == null"><span style="display:inline"  style="font-style: italic">Tapahtuman sivua ei löytynyt</span></a>
+                </li>
             </ul>
         </div>
-        <input type="text" placeholder="Search..">
-    </div>
-    <a href="">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" id="sää">Sää
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <iframe src="https://www.meteoblue.com/en/weather/widget/three/helsinki_finland_658225?geoloc=fixed&nocurrent=0&noforecast=0&noforecast=1&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: auto;height: auto"></iframe></div>
+        </div>
 
+    <div class="dropdown">
+        <button class="dropbtn" id="help">Help
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <app-help></app-help>
+        </div>
+</div>
+</div>
