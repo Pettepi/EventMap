@@ -10,6 +10,7 @@ import { LinkedeventsComponent } from './linkedevents/linkedevents.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { MainComponent } from './main/main.component';
 import { MediaService } from './media.service';
+import { HelpComponent } from './help/help.component';
 
 
 @NgModule({
@@ -19,11 +20,11 @@ import { MediaService } from './media.service';
         CommonModule,
         FormsModule,
         AgmCoreModule.forRoot({
-            apiKey: ' AIzaSyDs6oPVEcApR3Gxsg9WI_fWgEM8wMiEDdA '
+            apiKey: 'AIzaSyDs6oPVEcApR3Gxsg9WI_fWgEM8wMiEDdA'
         })
     ],
     providers: [ MediaService ],
-    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent, TopnavComponent, MainComponent],
+    declarations: [ AppComponent, GooglemapsComponent, LinkedeventsComponent, TopnavComponent, MainComponent, HelpComponent],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}

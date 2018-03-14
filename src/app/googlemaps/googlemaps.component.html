@@ -1,29 +1,25 @@
-<h1>{{ title }}</h1>
-
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-    <agm-marker *ngFor="let eventti of mediaService.events" [latitude]="eventti.paikka.position.coordinates[1]" [longitude]="eventti.paikka.position.coordinates[0]">
+    <agm-marker [iconUrl]=(icon) *ngFor="let eventti of mediaService.events" [latitude]="eventti.paikka.position.coordinates[1]" [longitude]="eventti.paikka.position.coordinates[0]">
         <agm-info-window>
             <h3 [innerHTML]="eventti.name.fi"></h3>
             <div [innerHTML]="eventti.short_description.fi"></div>
             <div *ngIf="eventti.info_url !== null">
                 <a target="_blank" href="{{ eventti.info_url.fi }}">Info</a>
             </div>
+            <div *ngIf="eventti.info_url == null">
+                <p style="font-style: italic">Tapahtumasta ei löytynyt lisätietoja.</p>
+            </div>
             <div *ngFor="let offer of eventti.offers">
                 <div *ngIf="offer.price !== null">
-                    {{ offer.description.fi }}
-                    {{ offer.price.fi }}
+                    {{ offer.description.fi }}<br>
+                    {{ offer.price.fi }}<br>
                     <a target="_blank" href="{{ offer.info_url.fi }}">Liput</a>
                 </div>
                 <div *ngIf="offer.price == null">
-                    <p>Tapahtuma on ilmainen</p>
-
+                    <p>Tapahtuma on ilmainen</p><br>
                 </div>
-                <p style="display:inline" [innerHTML]="eventti.start_time"></p><p style="display:inline" [innerHTML]> - </p><p style="display:inline" [innerHTML]="eventti.end_time"></p>
-
             </div>
+            <p>Alkaa:</p><p style="display:inline" [innerHTML]="eventti.start_time"></p><p style="display:inline" [innerHTML]> - </p><p style="display:inline" [innerHTML]="eventti.end_time"></p>
         </agm-info-window>
     </agm-marker>
 </agm-map>
