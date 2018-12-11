@@ -1,5 +1,6 @@
 # Projekti
 
+Project created by Petteri Piironen, Petri Lamberg and Markus.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
 ## Development server
